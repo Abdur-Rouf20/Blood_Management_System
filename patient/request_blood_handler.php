@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../includes/db_connect.php');
+include('../includes/db.php');
 
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'patient') {
     header("Location: ../login.php");
@@ -21,8 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("isisss", $patient_id, $blood_group, $bags_needed, $reason, $status, $requested_at);
 
+   
     if ($stmt->execute()) {
-        header("Location: dashboard.php?msg=Request+submitted+successfully");
+        echo "<script>
+            alert('Request submitted successfully');
+            window.location.href = 'dashboard.php';
+        </script>";
         exit();
     } else {
         echo "❌ Error submitting request: " . $stmt->error;
