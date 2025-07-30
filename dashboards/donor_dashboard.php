@@ -96,6 +96,10 @@ $donor_name = $_SESSION['donor_name'];
       <form action="../actions/withdraw.php" method="get">
         <button type="submit" class="btn">Withdraw Blood</button>
       </form>
+
+      <form action="../actions/search_donor.php" method="get">
+        <button type="submit" class="btn">Search Blood</button>
+      </form>
     </div>
   </main>
 </body>
