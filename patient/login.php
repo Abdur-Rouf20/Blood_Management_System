@@ -85,8 +85,8 @@
 <div class="login-container">
   <h2>Patient Login</h2>
   <form action="/blood_Donor_management_system/patient/login_handler.php" method="POST">
-    <label for="username">Email or Username:</label>
-    <input type="text" id="username" name="username" required>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
