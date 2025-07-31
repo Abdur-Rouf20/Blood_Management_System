@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $stmt->execute();
 
             // Get request details
-            $stmt = $conn->prepare("SELECT blood_group, units, donor_id, patient_id FROM requests WHERE id=?");
+            $stmt = $conn->prepare("SELECT blood_group, units, donor_id, patient_id FROM blood_requests WHERE id=?");
             $stmt->bind_param("i", $request_id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 // Fetch all requests
 $sql = "SELECT r.id, r.blood_group, r.units, r.status, r.timestamp, 
                d.name AS donor_name, p.name AS patient_name, r.request_type
-        FROM requests r
+        FROM blood_requests r
         LEFT JOIN donors d ON r.donor_id = d.id
         LEFT JOIN patients p ON r.patient_id = p.id
         ORDER BY r.timestamp DESC";
@@ -139,7 +139,21 @@ $result = $conn->query($sql);
         <th>Requested At</th>
         <th>Actions</th>
     </tr>
+    <?php
+$result = $conn->query("SELECT * FROM blood_requests");
 
+if (!$result) {
+    die("Query Error: " . $conn->error); // shows error like column/table issue
+}
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // display rows
+    }
+} else {
+    echo "No requests found.";
+}
+?>
     <?php if ($result->num_rows > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
             <tr>

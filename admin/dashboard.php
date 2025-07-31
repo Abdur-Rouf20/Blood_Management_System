@@ -56,9 +56,9 @@ $admin_name = $_SESSION['admin_name'];
 <ul>
     <li><a href="view_requests.php">View User Requests (Donor + Patient)</a></li>
     <li><a href="manage_requests.php">Accept / Reject Requests</a></li>
-    <li><a href="inventory.php">View / Print Inventory</a></li>
+    <li><a href="inventory_report.php">View / Print Inventory</a></li>
     <li><a href="user_lists.php">View Donors & Patients Lists</a></li>
-    <li><a href="crossmatch_reports.php">Generate Crossmatch Reports</a></li>
+    <li><a href="view_crossmatch_reports.php">Generate Crossmatch Reports</a></li>
     <li><a href="view_crossmatch_reports.php">View Crossmatch Reports</a></li>
 
 </ul>
