@@ -103,5 +103,8 @@ $donor_name = $_SESSION['donor_name'];
     </div>
   </main>
 </body>
+<footer> 
+  <?php include('../includes/footer.php'); ?>
+</footer>
 </html>
 

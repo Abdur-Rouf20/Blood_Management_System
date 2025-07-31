@@ -1,5 +1,4 @@
-<!-- donor_register.php placeholder -->
- <?php
+<?php
 // donor_register.php
 session_start();
 ?>
